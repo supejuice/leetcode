@@ -15,13 +15,3 @@ fun twoSum(nums: IntArray, target: Int): IntArray {
     }
     return intArrayOf()
 }
-fun twoSum2(nums: IntArray, target: Int): IntArray? {
-    val numToIndex: MutableMap<Int, Int> = HashMap()
-    for (i in nums.indices) {
-        if (numToIndex.containsKey(target - nums[i])) {
-            return intArrayOf(numToIndex[target - nums[i]]!!, i)
-        }
-        numToIndex[nums[i]] = i
-    }
-    return intArrayOf()
-}

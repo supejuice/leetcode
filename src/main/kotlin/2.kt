@@ -1,30 +1,26 @@
-import java.math.BigInteger
-
 fun main() {
-//    val result = addTwoNumbers(342.toListNode(), 465.toListNode())
 }
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
 }
-
 fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
-    return (l1.toBigInt() + l2.toBigInt()).toListNode()
+    return (l1.toLong() + l2.toLong()).toListNode()
 }
 
-fun ListNode?.toBigInt(multiplier: BigInteger = BigInteger.ONE): BigInteger {
-    this ?: return BigInteger.ZERO
-    val placevalue = multiplier.multiply(`val`.toBigInteger())
+
+fun ListNode?.toLong(placeValue: Long = 1L): Long {
+    this ?: return 0
     return if (next == null)
-        placevalue
-    else placevalue + next!!.toBigInt(multiplier * BigInteger.TEN)
+        `val` * placeValue
+    else `val` * placeValue + next!!.toLong(placeValue * 10L)
 }
 
-fun BigInteger.toListNode(divisor: BigInteger = BigInteger.TEN): ListNode? {
-    if (this == BigInteger.ZERO) return ListNode(0)
-    val digit = this.divide(divisor)
+fun Long.toListNode(divisor: Int = 10): ListNode? {
+    if (this == 0L) return ListNode(0)
+    val digit = this % divisor
     val remainingDigits = this / divisor
-    val next = if (remainingDigits > BigInteger.ZERO) (remainingDigits).toListNode() else null
+    val next = if (remainingDigits > 0) (remainingDigits).toListNode() else null
     val node = ListNode(digit.toInt())
     node.next = next
     return node
