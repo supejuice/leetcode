@@ -1,14 +1,15 @@
 /**
  * [lc](https://leetcode.com/problems/add-two-numbers/)
  */
-fun main() {
+private fun main() {
 }
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
 }
-fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
-    return (l1.toLong() + l2.toLong()).toListNode()
+fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode {
+    val sum = ListNode(0)
+    return sum
 }
 
 
