@@ -1,3 +1,6 @@
+/**
+ * [lc](https://leetcode.com/problems/add-two-numbers/)
+ */
 fun main() {
 }
 
@@ -16,7 +19,7 @@ fun ListNode?.toLong(placeValue: Long = 1L): Long {
     else `val` * placeValue + next!!.toLong(placeValue * 10L)
 }
 
-fun Long.toListNode(divisor: Int = 10): ListNode? {
+fun Long.toListNode(divisor: Int = 10): ListNode {
     if (this == 0L) return ListNode(0)
     val digit = this % divisor
     val remainingDigits = this / divisor
